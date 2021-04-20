@@ -1,7 +1,7 @@
 
 # Getting Started
 
-Before continuing, make sure you have already followed the [protest-test-backend](https://github.com/jmrona/protected-test-backend) instructions.
+Before continuing, make sure you have already followed the [webbox-backend](https://github.com/jmrona/webbox-backend) instructions.
 
 In the project directory, you can run:
 

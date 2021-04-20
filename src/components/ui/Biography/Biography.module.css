@@ -1,0 +1,56 @@
+.biography {
+	position: relative;
+	max-width: 800px;
+	width: 100%;
+	margin: 1rem 0 2.5rem 0;
+}
+
+.biography button {
+	width: 100%;
+	border-radius: 5px;
+	padding: 0.5rem;
+	border: 2px solid var(--orange);
+	background-color: var(--orange);
+	transition: 0.2s ease-in-out;
+	cursor: pointer;
+}
+
+.biography button:hover {
+	background-color: var(--orangeLight);
+}
+
+.edit {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	padding: 10px;
+	cursor: pointer;
+	position: absolute;
+	right: 20px;
+	top: -20px;
+	background-color: var(--white);
+	border: 2px solid var(--borderBiography);
+	border-radius: 50px;
+	transition: 0.2s ease-in-out;
+}
+
+.edit:hover {
+	background-color: var(--borderBiography);
+}
+
+.biography textarea {
+	width: 100%;
+	min-height: fit-content;
+	height: 100%;
+	border-radius: 5px;
+	border: 2px solid var(--borderBiography);
+
+	padding: 1rem 0.5rem;
+}
+
+@media screen and (max-width: 800px) {
+	.biography {
+		max-width: 500px;
+	}
+}

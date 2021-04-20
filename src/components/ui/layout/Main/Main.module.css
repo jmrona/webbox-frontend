@@ -1,0 +1,62 @@
+.content {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	padding: 1rem;
+	overflow: auto;
+}
+
+.row {
+	width: 100%;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.btn__remove {
+	margin: auto 0 0 0;
+}
+
+.btn__remove button {
+	border: 2px solid var(--red);
+	border-radius: 5px;
+	background: transparent;
+	color: var(--red);
+	font-weight: 1000;
+	padding: 0.5rem;
+	cursor: pointer;
+	transition: 0.2s ease;
+}
+
+.btn__remove button:hover {
+	color: var(--black);
+	background: var(--red);
+}
+
+/* 
+.row button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: fit-content;
+	cursor: pointer;
+	border: 2px solid var(--bgColor);
+	border-radius: 5px;
+	color: var(--bgColor);
+	background: var(--green);
+	padding: 0.5rem 1rem;
+	font-size: 1.2rem;
+	transition: 0.2s ease;
+}
+
+.row button span {
+	font-size: 1.5rem;
+	padding-right: 10px;
+}
+
+.row button:hover {
+	color: var(--black);
+	background: var(--greenDark);
+} */

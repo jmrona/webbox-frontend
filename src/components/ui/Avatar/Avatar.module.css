@@ -1,0 +1,22 @@
+.avatar {
+}
+
+.none {
+	width: 150px;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background-color: var(--primary);
+	border-radius: 50%;
+}
+
+.none p {
+	font-size: 3rem;
+	color: var(--white);
+}
+
+.picture img {
+	clip-path: circle(45% at 50% 50%);
+}

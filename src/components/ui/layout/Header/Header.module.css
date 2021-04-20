@@ -1,0 +1,28 @@
+.header {
+	width: 100%;
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header h4 {
+	padding: 1rem;
+}
+
+.header button {
+	border: 2px solid var(--red);
+	border-radius: 5px;
+	background: transparent;
+	color: var(--red);
+	font-weight: 1000;
+	margin: 1rem;
+	padding: 0.5rem;
+	cursor: pointer;
+	transition: 0.2s ease;
+}
+
+.header button:hover {
+	color: var(--black);
+	background: var(--red);
+}
