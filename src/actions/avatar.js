@@ -4,7 +4,6 @@ import { startGettingUser } from './user';
 
 export const startStoringAvatar = (file) => {
 	return async (dispatch) => {
-		console.log(file);
 		let formData = new FormData();
 		formData.append('file', file[0]);
 

@@ -29,7 +29,7 @@ export const LoginScreen = () => {
 		if (password.length === 0) {
 			setHasError([...hasError, 'The password field is required']);
 		}
-		console.log(hasError.length, hasError);
+
 		if (hasError.length > 0) {
 			return;
 		}

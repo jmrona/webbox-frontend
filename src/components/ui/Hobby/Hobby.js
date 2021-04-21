@@ -30,7 +30,6 @@ export const Hobby = () => {
 	};
 
 	const handleDelete = (id) => {
-		console.log('Deleting', id);
 		Swal.fire({
 			title: 'Warning!',
 			icon: 'warning',

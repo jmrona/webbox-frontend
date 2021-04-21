@@ -31,7 +31,7 @@ export const Avatar = () => {
 			);
 			return;
 		}
-		console.log(file);
+
 		if (file) {
 			Swal.fire('Uploading!', 'Uploading avatar...', 'info');
 			dispatch(startStoringAvatar(file));
