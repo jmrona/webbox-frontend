@@ -17,17 +17,20 @@ export const Biography = () => {
 	};
 
 	return (
-		<div className={styles.biography}>
-			<div className={styles.edit} onClick={() => setEditing(!editing)}>
-				<Pencil width='20px' height='20px' />
+		<>
+			<h3 className={styles.title}>Biography</h3>
+			<div className={styles.biography}>
+				<div className={styles.edit} onClick={() => setEditing(!editing)}>
+					<Pencil width='20px' height='20px' />
+				</div>
+				<textarea
+					disabled={!editing}
+					name='biograpy'
+					defaultValue={biography}
+					ref={textAreaRef}
+				></textarea>
+				{editing && <button onClick={handleEdit}>Update biography</button>}
 			</div>
-			<textarea
-				disabled={!editing}
-				name='biograpy'
-				defaultValue={biography}
-				ref={textAreaRef}
-			></textarea>
-			{editing && <button onClick={handleEdit}>Update biography</button>}
-		</div>
+		</>
 	);
 };
