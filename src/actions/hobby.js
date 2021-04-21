@@ -8,15 +8,10 @@ export const startAddingNewHobby = (hobby) => {
 
 		const resp = await fetchWithToken('hobby', { name, age }, 'POST');
 		const body = await resp.json();
-		const { hobbies, ok, msg } = body;
+		const { ok, msg } = body;
 
 		if (ok) {
 			dispatch(startGettingUser());
-			// Swal.fire({
-			// 	title: 'Added!',
-			// 	text: msg,
-			// 	icon: 'success',
-			// });
 		} else {
 			Swal.fire({
 				title: 'Error!',
@@ -31,7 +26,7 @@ export const startDeleteHobby = (id) => {
 	return async (dispatch) => {
 		const resp = await fetchWithToken('hobby/' + id, {}, 'DELETE');
 		const body = await resp.json();
-		const { hobbies, ok, msg } = body;
+		const { ok, msg } = body;
 
 		if (ok) {
 			dispatch(startGettingUser());

@@ -2,7 +2,6 @@ import Swal from 'sweetalert2';
 import * as dayjs from 'dayjs';
 import { types } from '../types/types';
 import { fetchWithoutToken, fetchWithToken } from '../helpers/fetch';
-import { useHistory } from 'react-router';
 import { startCleaningUser } from './user';
 
 export const startLogin = (email, password) => {

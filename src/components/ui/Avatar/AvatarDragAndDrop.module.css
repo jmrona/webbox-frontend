@@ -1,0 +1,52 @@
+.dashed {
+	position: relative;
+	border: 3px dashed var(--primary);
+	border-radius: 5px;
+}
+
+.dashed:-moz-drag-over {
+	cursor: grab;
+}
+
+.avatar {
+}
+
+.none {
+	position: relative;
+	width: 150px;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background-color: var(--primary);
+	border-radius: 50%;
+}
+
+.none p {
+	font-size: 3rem;
+	color: var(--white);
+}
+
+.picture {
+	position: relative;
+}
+.picture img {
+	clip-path: circle(44% at 50% 50%);
+}
+
+.button {
+	position: absolute;
+	bottom: 20px;
+	right: 0;
+	cursor: pointer;
+	padding: 8px 10px;
+	background-color: var(--white);
+	border: 2px solid var(--borderBiography);
+	border-radius: 50px;
+	transition: 0.2s ease-in-out;
+}
+
+.button:hover {
+	background-color: var(--borderBiography);
+}

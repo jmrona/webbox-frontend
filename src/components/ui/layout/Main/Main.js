@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './Main.module.css';
 
 import Swal from 'sweetalert2';
-import { Avatar } from '../../Avatar/Avatar';
 import { Biography } from '../../Biography/Biography';
 import { Hobby } from '../../Hobby/Hobby';
 import { startDeletingUser } from '../../../../actions/user';
+import { AvatarDragAndDrop } from '../../Avatar/AvatarDragAndDrop';
 
 export const Main = () => {
 	const user = useSelector((state) => state.user);
@@ -39,7 +39,7 @@ export const Main = () => {
 	return (
 		<div className={styles.content}>
 			<div className={styles.row}>
-				<Avatar />
+				<AvatarDragAndDrop />
 				<h2>{fullname}</h2>
 				<Biography />
 				<Hobby />

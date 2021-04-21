@@ -54,8 +54,8 @@ export const Hobby = () => {
 			<h3>Hobbies</h3>
 			<div className={styles.hobbies__container}>
 				{hobbies &&
-					hobbies.map((hobby) => (
-						<div className={styles.hobbies__item}>
+					hobbies.map((hobby, i) => (
+						<div className={styles.hobbies__item} key={i}>
 							{hobby.name}
 							<small>({hobby.age} years)</small>
 							<button onClick={() => handleDelete(hobby.id)}>x</button>

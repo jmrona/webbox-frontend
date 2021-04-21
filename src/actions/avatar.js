@@ -16,7 +16,7 @@ export const startStoringAvatar = (file) => {
 			Swal.fire({
 				title: 'Updated!',
 				text: msg,
-				icon: 'Avatar updated successfully',
+				icon: 'success',
 			});
 		} else {
 			Swal.fire({

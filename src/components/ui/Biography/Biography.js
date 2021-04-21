@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startupdatingUser } from '../../../actions/user';
-import { useForm } from '../../../hooks/useForm';
 import { Pencil } from '../Icons/Pencil';
 import styles from './Biography.module.css';
 
