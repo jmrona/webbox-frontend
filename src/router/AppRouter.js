@@ -5,17 +5,24 @@ import { HomeScreen } from '../components/pages/HomeScreen/HomeScreen';
 import { LoginScreen } from '../components/pages/LoginScreen/LoginScreen';
 import { RegisterScreen } from '../components/pages/RegisterScreen/RegisterScreen';
 import { Loading } from '../components/ui/Loading/Loading';
-import { useUsers } from '../hooks/useUsers';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { checkingFalse } from '../actions/auth';
 
 import { PrivateRoute } from './PrivateRouter';
 import { PublicRoute } from './PublicRouter';
 
 export const AppRouter = () => {
 	const token = localStorage.getItem('token');
-	const [user] = useUsers();
 
-	console.log(user);
-	if (!user && user === null) {
+	const { checking } = useSelector((state) => state.auth);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(checkingFalse());
+	}, []);
+
+	if (checking) {
 		return <Loading />;
 	}
 

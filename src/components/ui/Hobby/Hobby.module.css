@@ -44,16 +44,43 @@
 
 .form {
 	display: flex;
+	flex-flow: column;
 	width: 100%;
 }
 
 .form input {
-	flex: 1;
 	border: none;
 	padding: 0.3rem;
 }
+/* 
+.label {
+	position: relative;
+	display: flex;
+	width: 100%;
+}
+.label label {
+	width: 50%;
+}
 
-.form button {
+.label label:last-child {
+	position: absolute;
+	right: -50px;
+} */
+
+.form__content {
+	width: 100%;
+	display: flex;
+}
+
+.form__content input[type='text'] {
+	flex: 1;
+}
+
+.form__content input[type='number'] {
+	width: 100px;
+}
+
+.form__content button {
 	cursor: pointer;
 	border: none;
 	padding: 0.3rem 0.5rem;

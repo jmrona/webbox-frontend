@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { startupdatingUser } from '../../../actions/user';
 import { useForm } from '../../../hooks/useForm';
 import { Pencil } from '../Icons/Pencil';
 import styles from './Biography.module.css';
 
-export const Biography = ({ content, editUser }) => {
-	const [editing, setEditing] = useState(true);
-	const [values, handleInputChange] = useForm({
-		biography: content || '',
-	});
+export const Biography = () => {
+	const { biography } = useSelector((state) => state.user);
+	const dispatch = useDispatch();
+	const textAreaRef = useRef();
 
-	const { biography } = values;
+	const [editing, setEditing] = useState(false);
 
 	const handleEdit = () => {
-		editUser(biography);
-		setEditing(!editing);
+		dispatch(startupdatingUser(textAreaRef.current.value));
+		setEditing(false);
 	};
 
 	return (
@@ -23,11 +24,11 @@ export const Biography = ({ content, editUser }) => {
 			</div>
 			<textarea
 				disabled={!editing}
-				name='biography'
-				value={biography}
-				onChange={handleInputChange}
+				name='biograpy'
+				defaultValue={biography}
+				ref={textAreaRef}
 			></textarea>
-			{!editing && <button onClick={handleEdit}>Update biography</button>}
+			{editing && <button onClick={handleEdit}>Update biography</button>}
 		</div>
 	);
 };

@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { useForm } from '../../../hooks/useForm';
 import styles from './RegisterScreen.module.css';
-import { useAuth } from '../../../hooks/useAuth';
+
+import { useDispatch } from 'react-redux';
+import { startRegister } from '../../../actions/auth';
 
 export const RegisterScreen = () => {
 	const [hasError, setHasError] = useState([]);
-	const [login, register, logout] = useAuth();
 
 	const [formValues, handleInputChange] = useForm({
 		fullname: '',
@@ -17,6 +18,7 @@ export const RegisterScreen = () => {
 
 	const { fullname, dob, email, password } = formValues;
 	const history = useHistory();
+	const dispatch = useDispatch();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -50,7 +52,7 @@ export const RegisterScreen = () => {
 			return;
 		}
 
-		register(fullname, dob, email, password);
+		dispatch(startRegister(fullname, dob, email, password));
 	};
 
 	const handleClick = () => {

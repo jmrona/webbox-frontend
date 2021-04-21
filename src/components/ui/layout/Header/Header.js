@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { startLogout } from '../../../../actions/auth';
 import styles from './Header.module.css';
 
-export const Header = ({ user, logout }) => {
-	const { fullname } = user;
+export const Header = () => {
+	const { fullname } = useSelector((state) => state.user);
 
+	const dispatch = useDispatch();
 	const handleLogout = () => {
-		logout && logout();
+		dispatch(startLogout());
 	};
 
 	return (

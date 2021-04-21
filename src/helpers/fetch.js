@@ -50,3 +50,19 @@ export const fetchWithToken = (endpoint, data, method = 'GET') => {
 		});
 	}
 };
+
+export const fetchWithTokenAndFile = (endpoint, formData, method) => {
+	const url = `${baseUrl}/${endpoint}`; //localhost:8000/api/auth
+	const token = localStorage.getItem('token') || '';
+
+	if (method === 'POST') {
+		return fetch(url, {
+			method,
+			mode: 'cors',
+			headers: {
+				Authorization: 'Bearer ' + token,
+			},
+			body: formData,
+		});
+	}
+};

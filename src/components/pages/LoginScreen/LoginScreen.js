@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { useForm } from '../../../hooks/useForm';
+import { useDispatch } from 'react-redux';
 import styles from './LoginScreen.module.css';
-import { useAuth } from '../../../hooks/useAuth';
+
+import { startLogin } from '../../../actions/auth';
 
 export const LoginScreen = () => {
 	const [hasError, setHasError] = useState([]);
-
-	const [login, register, logout] = useAuth();
 
 	const [formValues, handleInputChange] = useForm({
 		email: '',
@@ -16,24 +16,25 @@ export const LoginScreen = () => {
 
 	const { email, password } = formValues;
 	const history = useHistory();
+	const dispatch = useDispatch();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setHasError([]);
 
 		if (email.length === 0) {
-			setHasError(['The email field is required']);
+			setHasError([...hasError, 'The email field is required']);
 		}
 
 		if (password.length === 0) {
-			setHasError(['The password field is required']);
+			setHasError([...hasError, 'The password field is required']);
 		}
-
+		console.log(hasError.length, hasError);
 		if (hasError.length > 0) {
 			return;
 		}
 
-		login(email, password);
+		dispatch(startLogin(email, password));
 	};
 
 	const handleClick = () => {
@@ -63,10 +64,11 @@ export const LoginScreen = () => {
 							Email
 							<input
 								type='text'
-								placeholder='email'
+								placeholder='Email'
 								name='email'
 								value={email}
 								onChange={handleInputChange}
+								required
 							/>
 						</label>
 						<label>
@@ -77,6 +79,7 @@ export const LoginScreen = () => {
 								name='password'
 								value={password}
 								onChange={handleInputChange}
+								required
 							/>
 						</label>
 						<div className={styles.card__footer}>

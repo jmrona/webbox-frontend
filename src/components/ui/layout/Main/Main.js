@@ -1,36 +1,34 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import styles from './Main.module.css';
+
 import Swal from 'sweetalert2';
-import { useAuth } from '../../../../hooks/useAuth';
 import { Avatar } from '../../Avatar/Avatar';
 import { Biography } from '../../Biography/Biography';
 import { Hobby } from '../../Hobby/Hobby';
-import styles from './Main.module.css';
+import { startDeletingUser } from '../../../../actions/user';
 
-export const Main = ({ user, updateUser, deleteUser }) => {
-	const {
-		id,
-		avatar: userAvatar,
-		fullname,
-		biography,
-		get_hobbies: hobbies,
-	} = user;
+export const Main = () => {
+	const user = useSelector((state) => state.user);
+	const { fullname } = user;
 
-	const [login, register, logout] = useAuth();
+	const dispatch = useDispatch();
+	const history = useHistory();
 
 	const handleDeleteUser = () => {
 		Swal.fire({
 			title: 'Warning!',
 			icon: 'warning',
-			text: 'Do you want to delete this user?',
+			text:
+				'Are you sure? If you delete your user you will not able to log in again.',
 			showCancelButton: true,
-			confirmButtonText: `Delete it`,
-			cancelButtonText: `Don't deleted it`,
+			confirmButtonText: `Yes, delete it`,
+			cancelButtonText: `No, don't deleted it`,
 			focusCancel: true,
 		}).then(async (result) => {
-			/* Read more about isConfirmed, isDenied below */
 			if (result.isConfirmed) {
-				logout();
-				deleteUser();
+				dispatch(startDeletingUser(history));
 				Swal.fire('Deleted!', '', 'success');
 			} else if (result.isDismissed) {
 				Swal.fire('The user was not deleted', '', 'info');
@@ -41,11 +39,10 @@ export const Main = ({ user, updateUser, deleteUser }) => {
 	return (
 		<div className={styles.content}>
 			<div className={styles.row}>
-				<Avatar picture={userAvatar} userName={fullname} id={id} />
-
+				<Avatar />
 				<h2>{fullname}</h2>
-				<Biography content={biography} editUser={updateUser} />
-				<Hobby hobbies={hobbies} />
+				<Biography />
+				<Hobby />
 				<div className={styles.btn__remove}>
 					<button onClick={handleDeleteUser}>Remove account</button>
 				</div>

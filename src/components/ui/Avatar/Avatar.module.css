@@ -2,6 +2,7 @@
 }
 
 .none {
+	position: relative;
 	width: 150px;
 	height: 150px;
 	display: flex;
@@ -17,6 +18,25 @@
 	color: var(--white);
 }
 
+.picture {
+	position: relative;
+}
 .picture img {
-	clip-path: circle(45% at 50% 50%);
+	clip-path: circle(44% at 50% 50%);
+}
+
+.button {
+	position: absolute;
+	bottom: 20px;
+	right: 0;
+	cursor: pointer;
+	padding: 8px 10px;
+	background-color: var(--white);
+	border: 2px solid var(--borderBiography);
+	border-radius: 50px;
+	transition: 0.2s ease-in-out;
+}
+
+.button:hover {
+	background-color: var(--borderBiography);
 }
