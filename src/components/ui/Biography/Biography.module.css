@@ -37,20 +37,11 @@
 	border: 2px solid var(--borderBiography);
 	border-radius: 50px;
 	transition: 0.2s ease-in-out;
+	z-index: 2;
 }
 
 .edit:hover {
 	background-color: var(--borderBiography);
-}
-
-.biography textarea {
-	width: 100%;
-	min-height: fit-content;
-	height: 100%;
-	border-radius: 5px;
-	border: 2px solid var(--borderBiography);
-
-	padding: 1rem 0.5rem;
 }
 
 @media screen and (max-width: 800px) {
